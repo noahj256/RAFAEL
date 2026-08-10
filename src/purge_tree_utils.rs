@@ -136,6 +136,9 @@ impl Drop for PurgeCandidate {
                             e,
                             &self.path.display()
                         );
+                        for unkown_file in fs::read_dir(&self.path).unwrap(){
+                            eprintln!("\t{}", unkown_file.unwrap().path().display())
+                        }
                     }
                 }
             } else {
